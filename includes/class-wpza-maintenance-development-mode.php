@@ -122,9 +122,17 @@ class Wpza_Maintenance_Development_Mode {
 		 */
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-wpza-maintenance-development-mode-public.php';
 
-		$this->loader = new Wpza_Maintenance_Development_Mode_Loader();
+		/**
+         * Exopite Simple Options Framework
+         *
+         * @link https://github.com/JoeSz/Exopite-Simple-Options-Framework
+         * @author Joe Szalai
+         */
+        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/exopite-simple-options/exopite-simple-options-framework-class.php';
 
-	}
+            $this->loader = new Wpza_Maintenance_Development_Mode_Loader();
+
+        }
 
 	/**
 	 * Define the locale for this plugin for internationalization.
@@ -156,6 +164,9 @@ class Wpza_Maintenance_Development_Mode {
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
+
+		// Save/Update our plugin options
+		$this->loader->add_action( 'init', $plugin_admin, 'create_menu', 999 );
 
 	}
 

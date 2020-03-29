@@ -13,7 +13,7 @@
  * @package           Wpza_Maintenance_Development_Mode
  *
  * @wordpress-plugin
- * Plugin Name:       WPZA Maintenance and Development Mode
+ * Plugin Name:       Maintenance and Development Mode
  * Plugin URI:        https://wpza.co.za
  * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
  * Version:           1.0.0

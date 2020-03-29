@@ -106,19 +106,19 @@ class Wpza_Maintenance_Development_Mode_Admin {
 		* Create a submenu page under Plugins.
 		* Framework also add "Settings" to your plugin in plugins list.
 		*/
-		$config_submenu = array(
+		// $config_submenu = array(
 
-			'type'              => 'menu',                          // Required, menu or metabox
-			'id'                => $this->plugin_name . '-test',    // Required, meta box id, unique per page, to save: get_option( id )
-			'parent'            => 'plugins.php',                   // Required, sub page to your options page
-			// 'parent'            => 'edit.php?post_type=your_post_type',
-			'submenu'           => true,                            // Required for submenu
-			'title'             => esc_html__( 'Maintenance Mode', 'wpza-maintenance-development-mode' ),    //The name of this page
-			'capability'        => 'manage_options',                // The capability needed to view the page
-			'plugin_basename'   => plugin_basename( plugin_dir_path( __DIR__ ) . $this->plugin_name . '.php' ),
-			// 'tabbed'            => false,
+		// 	'type'              => 'menu',                          // Required, menu or metabox
+		// 	'id'                => $this->plugin_name . '-test',    // Required, meta box id, unique per page, to save: get_option( id )
+		// 	'parent'            => 'plugins.php',                   // Required, sub page to your options page
+		// 	// 'parent'            => 'edit.php?post_type=your_post_type',
+		// 	'submenu'           => true,                            // Required for submenu
+		// 	'title'             => esc_html__( 'Maintenance Mode', 'wpza-maintenance-development-mode' ),    //The name of this page
+		// 	'capability'        => 'manage_options',                // The capability needed to view the page
+		// 	'plugin_basename'   => plugin_basename( plugin_dir_path( __DIR__ ) . $this->plugin_name . '.php' ),
+		// 	// 'tabbed'            => false,
 
-		);
+		// );
 
 		//
 		// - OR --
@@ -138,7 +138,7 @@ class Wpza_Maintenance_Development_Mode_Admin {
 			'menu'              => $parent,                                         // Required, sub page to your options page
 			'submenu'           => true,                                            // Required for submenu
 			'settings-link'     => $settings_link,
-			'title'             => esc_html__( 'Demo Admin Page', 'wpza-maintenance-development-mode' ),    //The name of this page
+			'title'             => esc_html__( 'Maintenance Mode', 'wpza-maintenance-development-mode' ),    //The name of this page
 			'capability'        => 'manage_options',                                // The capability needed to view the page
 			'plugin_basename'   => plugin_basename( plugin_dir_path( __DIR__ ) . $this->plugin_name . '.php' ),
 			'tabbed'            => true,
@@ -150,6 +150,18 @@ class Wpza_Maintenance_Development_Mode_Admin {
 			'title'  => 'First',
 			'icon'   => 'dashicons-admin-generic',
 			'fields' => array(
+
+                array(
+                    'id'      => 'activate_maintenance_mode',
+                    'type'    => 'radio',
+                    'title'   => 'Activate Maintenance',
+                    'options' => array(
+                        'yes'   => 'Yes, please activate.',
+                        'no'    => 'No, please deactivate.',
+                    ),
+                    'default' => 'no',     // optional
+                    'style'    => 'fancy', // optional
+                ),
 
 				array(
 					'id'          => 'text_1',

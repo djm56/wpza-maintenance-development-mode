@@ -146,8 +146,8 @@ class Wpza_Maintenance_Development_Mode_Admin {
 		);
 
 		$fields[] = array(
-			'name'   => 'first',
-			'title'  => 'First',
+			'name'   => 'settings',
+			'title'  => 'Settings',
 			'icon'   => 'dashicons-admin-generic',
 			'fields' => array(
 
@@ -231,9 +231,9 @@ class Wpza_Maintenance_Development_Mode_Admin {
 		 * Second Tab
 		 */
 		$fields[] = array(
-			'name'   => 'second',
-			'title'  => 'Second',
-			'icon'   => 'dashicons-portfolio',
+			'name'   => 'customize',
+			'title'  => 'Customize',
+			'icon'   => 'dashicons-admin-customizer',
 			'fields' => array(
 
 				array(
@@ -249,9 +249,39 @@ class Wpza_Maintenance_Development_Mode_Admin {
 		 * Third Tab
 		 */
 		$fields[] = array(
-			'name'   => 'third',
-			'title'  => 'Third',
-			'icon'   => 'dashicons-portfolio',
+			'name'   => 'css_js',
+			'title'  => 'CSS/JS',
+			'icon'   => 'dashicons-editor-code',
+			'fields' => array(
+
+				array(
+					'type'    => 'content_third',
+					'content' => 'Third Section',
+
+				),
+
+			)
+		);
+
+        $fields[] = array(
+			'name'   => 'help',
+			'title'  => 'Help',
+			'icon'   => 'dashicons-editor-help',
+			'fields' => array(
+
+				array(
+					'type'    => 'content_third',
+					'content' => 'Third Section',
+
+				),
+
+			)
+        );
+
+        $fields[] = array(
+			'name'   => 'about',
+			'title'  => 'About',
+			'icon'   => 'dashicons-smiley',
 			'fields' => array(
 
 				array(

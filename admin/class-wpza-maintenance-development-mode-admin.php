@@ -144,7 +144,9 @@ class Wpza_Maintenance_Development_Mode_Admin {
 			'tabbed'            => true,
 
 		);
-
+		/*
+		* Main Settings Tab
+		*/
 		$fields[] = array(
 			'name'   => 'settings',
 			'title'  => 'Settings',
@@ -227,9 +229,9 @@ class Wpza_Maintenance_Development_Mode_Admin {
 			),
 		);
 
-		/**
-		 * Second Tab
-		 */
+		/*
+		* Customize Fonts, Colours Etc Tab
+		*/
 		$fields[] = array(
 			'name'   => 'customize',
 			'title'  => 'Customize',
@@ -245,9 +247,9 @@ class Wpza_Maintenance_Development_Mode_Admin {
 			)
 		);
 
-		/**
-		 * Third Tab
-		 */
+		/*
+		* Custom CSS and Javascript Tab
+		*/
 		$fields[] = array(
 			'name'   => 'css_js',
 			'title'  => 'CSS/JS',
@@ -292,7 +294,9 @@ class Wpza_Maintenance_Development_Mode_Admin {
 
 			)
 		);
-
+		/*
+		* Import Export Settings Tab
+		*/
 		$fields[] = array(
 			'name'   => 'backup',
 			'title'  => 'Backup',
@@ -306,7 +310,9 @@ class Wpza_Maintenance_Development_Mode_Admin {
 
 			)
 		);
-
+		/*
+		* Help Tab
+		*/
         $fields[] = array(
 			'name'   => 'help',
 			'title'  => 'Help',
@@ -322,31 +328,24 @@ class Wpza_Maintenance_Development_Mode_Admin {
 			)
         );
 		$aboutcontent = "<h2>Maintenance Mode Plugin<h2>
-
 		<p class='exopite-sof-description'>Maintenance and Development mode is used when you don’t want the public to view your site, but still have an attractive page giving the public details on when  your site will be available again.</p>
-
 		<p class='exopite-sof-description'>I noticed that many maintenance mode plugins were so complicated and wanted to release something that was quick and easy.</p>
-
 		<p class='exopite-sof-description'>It can be used when you are updating your site, developing new features or just want to park a domain.</p>
-
 		<p class='exopite-sof-description'>The maintenance plugin was developed by Donovan Maidens and is available free of charge on github.</p>
-
 		<p class='exopite-sof-description'><a href='https://github.com/djm56/wpza-maintenance-development-mode'>https://github.com/djm56/wpza-maintenance-development-mode</a></p>
-
 		<p class='exopite-sof-description'>If you have any questions, suggestions or just require some help, please use Github Issues.</p>
-
 		<p class='exopite-sof-description'>Special Thanks To:<br />
 		Joe Szalai for his great tool available on Github, I have used them extensively throughout the site.<br />
 		Wordpress Plugin Boilerplat:<br />
 		<a href='https://github.com/JoeSz/WordPress-Plugin-Boilerplate-Tutorial'>https://github.com/JoeSz/WordPress-Plugin-Boilerplate-Tutorial</a><br />
 		Exopite Simple Options Framework:<br />
 		<a href='https://github.com/JoeSz/Exopite-Simple-Options-Framework'>https://github.com/JoeSz/Exopite-Simple-Options-Framework</a></p>
-
 		<p class='exopite-sof-description'>I hope you enjoy the plugin</p>
-
 		<p class='exopite-sof-description'>This project is licensed under the GNU GENERAL PUBLIC LICENSE</p>
 		";
-
+		/*
+		* About Donovan Tab
+		*/
         $fields[] = array(
 			'name'   => 'about',
 			'title'  => 'About',

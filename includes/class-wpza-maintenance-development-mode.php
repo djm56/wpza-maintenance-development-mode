@@ -67,9 +67,10 @@ class Wpza_Maintenance_Development_Mode {
 	 * @since    1.0.0
 	 */
 	public function __construct() {
-		if ( defined( 'WPZA_MAINTENANCE_DEVELOPMENT_MODE_VERSION' ) ) {
+		if (defined('WPZA_MAINTENANCE_DEVELOPMENT_MODE_VERSION')) {
 			$this->version = WPZA_MAINTENANCE_DEVELOPMENT_MODE_VERSION;
-		} else {
+		}
+		else {
 			$this->version = '1.0.0';
 		}
 		$this->plugin_name = 'wpza-maintenance-development-mode';
@@ -78,7 +79,6 @@ class Wpza_Maintenance_Development_Mode {
 		$this->set_locale();
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
-
 	}
 
 	/**
@@ -103,36 +103,35 @@ class Wpza_Maintenance_Development_Mode {
 		 * The class responsible for orchestrating the actions and filters of the
 		 * core plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wpza-maintenance-development-mode-loader.php';
+		require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-wpza-maintenance-development-mode-loader.php';
 
 		/**
 		 * The class responsible for defining internationalization functionality
 		 * of the plugin.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'includes/class-wpza-maintenance-development-mode-i18n.php';
+		require_once plugin_dir_path(dirname(__FILE__)) . 'includes/class-wpza-maintenance-development-mode-i18n.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the admin area.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/class-wpza-maintenance-development-mode-admin.php';
+		require_once plugin_dir_path(dirname(__FILE__)) . 'admin/class-wpza-maintenance-development-mode-admin.php';
 
 		/**
 		 * The class responsible for defining all actions that occur in the public-facing
 		 * side of the site.
 		 */
-		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-wpza-maintenance-development-mode-public.php';
+		require_once plugin_dir_path(dirname(__FILE__)) . 'public/class-wpza-maintenance-development-mode-public.php';
 
 		/**
-         * Exopite Simple Options Framework
-         *
-         * @link https://github.com/JoeSz/Exopite-Simple-Options-Framework
-         * @author Joe Szalai
-         */
-        require_once plugin_dir_path( dirname( __FILE__ ) ) . 'admin/exopite-simple-options/exopite-simple-options-framework-class.php';
+		 * Exopite Simple Options Framework
+		 *
+		 * @link https://github.com/JoeSz/Exopite-Simple-Options-Framework
+		 * @author Joe Szalai
+		 */
+		require_once plugin_dir_path(dirname(__FILE__)) . 'admin/exopite-simple-options/exopite-simple-options-framework-class.php';
 
-            $this->loader = new Wpza_Maintenance_Development_Mode_Loader();
-
-        }
+		$this->loader = new Wpza_Maintenance_Development_Mode_Loader();
+	}
 
 	/**
 	 * Define the locale for this plugin for internationalization.
@@ -147,8 +146,7 @@ class Wpza_Maintenance_Development_Mode {
 
 		$plugin_i18n = new Wpza_Maintenance_Development_Mode_i18n();
 
-		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
-
+		$this->loader->add_action('plugins_loaded', $plugin_i18n, 'load_plugin_textdomain');
 	}
 
 	/**
@@ -160,14 +158,13 @@ class Wpza_Maintenance_Development_Mode {
 	 */
 	private function define_admin_hooks() {
 
-		$plugin_admin = new Wpza_Maintenance_Development_Mode_Admin( $this->get_plugin_name(), $this->get_version() );
+		$plugin_admin = new Wpza_Maintenance_Development_Mode_Admin($this->get_plugin_name(), $this->get_version());
 
-		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
-		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts' );
+		$this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_styles');
+		$this->loader->add_action('admin_enqueue_scripts', $plugin_admin, 'enqueue_scripts');
 
 		// Save/Update our plugin options
-		$this->loader->add_action( 'init', $plugin_admin, 'create_menu', 999 );
-
+		$this->loader->add_action('init', $plugin_admin, 'create_menu', 999);
 	}
 
 	/**
@@ -179,11 +176,17 @@ class Wpza_Maintenance_Development_Mode {
 	 */
 	private function define_public_hooks() {
 
-		$plugin_public = new Wpza_Maintenance_Development_Mode_Public( $this->get_plugin_name(), $this->get_version() );
+		$plugin_public = new Wpza_Maintenance_Development_Mode_Public($this->get_plugin_name(), $this->get_version());
 
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
-		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
 
+
+		$this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_styles');
+		$this->loader->add_action('wp_enqueue_scripts', $plugin_public, 'enqueue_scripts');
+
+		$this->loader->add_action('wp_loaded', $plugin_public, 'wpza_maintenance_mode');
+
+//		$this->loader->add_filter('query_vars', $plugin_public, 'whitelist_query_variable');
+//		$this->loader->add_action('parse_request', $plugin_public, 'redirect_to_file');
 	}
 
 	/**

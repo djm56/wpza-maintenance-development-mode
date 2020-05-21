@@ -47,11 +47,10 @@ class Wpza_Maintenance_Development_Mode_Public {
 	 * @param      string    $plugin_name       The name of the plugin.
 	 * @param      string    $version    The version of this plugin.
 	 */
-	public function __construct( $plugin_name, $version ) {
+	public function __construct($plugin_name, $version) {
 
-		$this->plugin_name = $plugin_name;
-		$this->version = $version;
-
+		$this->plugin_name	 = $plugin_name;
+		$this->version		 = $version;
 	}
 
 	/**
@@ -72,9 +71,8 @@ class Wpza_Maintenance_Development_Mode_Public {
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
-
-		wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/wpza-maintenance-development-mode-public.css', array(), $this->version, 'all' );
-
+		wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/pure-min.css', array(), '2.0.3', 'all');
+		wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/wpza-maintenance-development-mode-public.css', array(), $this->version, 'all');
 	}
 
 	/**
@@ -95,9 +93,47 @@ class Wpza_Maintenance_Development_Mode_Public {
 		 * between the defined hooks and the functions defined in this
 		 * class.
 		 */
-
-		wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/wpza-maintenance-development-mode-public.js', array( 'jquery' ), $this->version, false );
-
+		wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/wpza-maintenance-development-mode-public.js', array('jquery'), $this->version, false);
 	}
 
+	public function wpza_maintenance_mode() {
+		global $pagenow;
+		if ($pagenow !== 'wp-login.php' && !current_user_can('manage_options') && !is_admin()) {
+
+			header('HTTP/1.1 Service Unavailable', true, 503);
+			header('Content-Type: text/html; charset=utf-8');
+
+			require_once( WP_PLUGIN_DIR . '/' . $this->plugin_name . '/templates/custom-php-file.php' );
+
+			die();
+		}
+	}
+
+	// add blackout to the whitelist of variables it wordpress knows and allows
+// in this case it is the plugin name
+//	public function whitelist_query_variable($query_vars) {
+//
+//		$query_vars[] = $this->plugin_name;
+//		return $query_vars;
+//	}
+//
+//// If this is done, we can access it later
+//// This example checks very early in the process:
+//// if the variable is set, we include our page and stop execution after it
+//	public function redirect_to_file(&$wp) {
+//
+//		if (array_key_exists($this->plugin_name, $wp->query_vars)) {
+//
+//			switch ($wp->query_vars[$this->plugin_name]) {
+//
+//				case 'my_value':
+//					include( WP_PLUGIN_DIR . '/' . $this->plugin_name . '/templates/custom-php-file.php' );
+//					break;
+//
+//				// ...
+//			}
+//
+//			exit();
+//		}
+//	}
 }

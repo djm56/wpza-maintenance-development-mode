@@ -3,7 +3,7 @@ WordPress Plugin used to create maintenance page while site is parked or in deve
 
 The plugin shows a landing page for maintenance, but when you log in the active template is shown.
 
-Version: 0.0.1
+Version: 1.0.0
 
 ## Installation
 
@@ -14,7 +14,20 @@ Version: 0.0.1
 3. Select the ZIP package you've downloaded in step 1.
 4. Go to *Plugins* and enable Maintenance & Development Mode.
 
-## License
+### Author:
+
+Donovan Maidens ( [@Unbiased_rugby](http://twitter.com/Anomalous_Bot) / [anomalous.co.za](http://anomalous.co.za) )
+
+### Special Thanks
+
+Joe Szalai for his great tool available on Github, I have used them extensively throughout the site.<br />
+Wordpress Plugin Boilerplate:
+https://github.com/JoeSz/WordPress-Plugin-Boilerplate-Tutorial
+Exopite Simple Options Framework:
+https://github.com/JoeSz/Exopite-Simple-Options-Framework
+
+
+## Lcense
 
 This project is licensed under the GNU GENERAL PUBLIC LICENSE - see the [LICENSE.md](LICENSE.md) file for details
 

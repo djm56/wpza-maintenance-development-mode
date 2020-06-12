@@ -197,6 +197,24 @@ class Wpza_Maintenance_Development_Mode_Admin {
 					'content'	 => '<p>Add the page content you would like to use on the page.',
 				),
 				array(
+					'id'			 => 'left_logo_image',
+					'type'			 => 'image',
+					'title'			 => 'Logo',
+					'description'	 => 'If you need a logo please add it, it will apper next to the content below.'
+				),
+				array(
+					'id'		 => 'logo_position',
+					'type'		 => 'radio',
+					'title'		 => 'Logo Position',
+					'options'	 => array(
+						'top'	 => 'Above Content',
+						'left'	 => 'Left of Content',
+						'right'	 => 'Right of Content',
+					),
+					'default'	 => 'left', // optional
+					'style'		 => 'fancy', // optional
+				),
+				array(
 					'id'			 => 'editor_content',
 					'type'			 => 'editor',
 					'title'			 => 'Content', // optional
@@ -214,10 +232,10 @@ class Wpza_Maintenance_Development_Mode_Admin {
 			'icon'	 => 'dashicons-editor-code',
 			'fields' => array(
 				array(
-					'id'			 => 'ace_editor_css',
+					'id'			 => 'ace_editor_javascript',
 					'type'			 => 'ace_editor',
 					'title'			 => 'Custom JavaScript',
-					'description'	 => 'Add any JavaScript you would like to add to the page, please note you do not have to add the <script></script> tags.',
+					'description'	 => 'Add any JavaScript you would like to add to the page, please note you do not have to add the &#x3C;script&#x3E;&#x3C;/script&#x3E; tags.',
 					'options'		 => array(
 						'theme'						 => 'ace/theme/chrome',
 						'mode'						 => 'ace/mode/css',
@@ -232,10 +250,10 @@ class Wpza_Maintenance_Development_Mode_Admin {
 					),
 				),
 				array(
-					'id'			 => 'ace_editor_javascript',
+					'id'			 => 'ace_editor_css',
 					'type'			 => 'ace_editor',
 					'title'			 => 'Custom CSS',
-					'description'	 => 'Add any CSS you would like to add to the page, please note you do not have to add the <style></style> tags.',
+					'description'	 => 'Add any CSS you would like to add to the page, please note you do not have to add the &#x3C;style&#x3E;&#x3C;/style&#x3E; tags.',
 					'options'		 => array(
 						'theme'						 => 'ace/theme/chrome',
 						'mode'						 => 'ace/mode/javascript',

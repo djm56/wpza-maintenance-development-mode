@@ -24,8 +24,8 @@ and open the template in the editor.
 
 .splash {
 	/* absolute center .splash within .splash-container */
-	width: 50%;
-	height: 50%;
+	width: 70%;
+	height: auto;
 	margin: auto;
 	position: absolute;
 	top: 100px; left: 0; bottom: 0; right: 0;
@@ -52,6 +52,9 @@ and open the template in the editor.
 	opacity: 0.8;
 }
 
+.l-box {
+	padding: 1em;
+}
 
 
 

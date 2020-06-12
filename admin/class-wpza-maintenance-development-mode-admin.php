@@ -124,7 +124,7 @@ class Wpza_Maintenance_Development_Mode_Admin {
 		// $parent = ( is_plugin_active( 'wordpress-seo/wp-seo.php' ) ) ? 'wpseo_dashboard' : 'plugins.php';
 		// $settings_link = ( is_plugin_active( 'wordpress-seo/wp-seo.php' ) ) ? 'admin.php?page=plugin-name' : 'plugins.php?page=plugin-name';
 
-		$config_submenu	 = array(
+		$config_submenu = array(
 			'type'				 => 'menu', // Required, menu or metabox
 			'id'				 => $this->plugin_name, // Required, meta box id, unique per page, to save: get_option( id )
 			'menu'				 => $parent, // Required, sub page to your options page
@@ -135,6 +135,23 @@ class Wpza_Maintenance_Development_Mode_Admin {
 			'plugin_basename'	 => plugin_basename(plugin_dir_path(__DIR__) . $this->plugin_name . '.php'),
 			'tabbed'			 => true,
 		);
+
+		$aboutcontent	 = "<h2>Maintenance Mode Plugin<h2>
+		<p class='exopite-sof-description'>Maintenance and Development mode is used when you don’t want the public to view your site, but still have an attractive page giving the public details on when  your site will be available again.</p>
+		<p class='exopite-sof-description'>I noticed that many maintenance mode plugins were so complicated and wanted to release something that was quick and easy.</p>
+		<p class='exopite-sof-description'>It can be used when you are updating your site, developing new features or just want to park a domain.</p>
+		<p class='exopite-sof-description'>The maintenance plugin was developed by Donovan Maidens and is available free of charge on github.</p>
+		<p class='exopite-sof-description'><a href='https://github.com/djm56/wpza-maintenance-development-mode'>https://github.com/djm56/wpza-maintenance-development-mode</a></p>
+		<p class='exopite-sof-description'>If you have any questions, suggestions or just require some help, please use Github Issues.</p>
+		<p class='exopite-sof-description'>Special Thanks To:<br />
+		Joe Szalai for his great tool available on Github, I have used them extensively throughout the site.<br />
+		Wordpress Plugin Boilerplate:<br />
+		<a href='https://github.com/JoeSz/WordPress-Plugin-Boilerplate-Tutorial'>https://github.com/JoeSz/WordPress-Plugin-Boilerplate-Tutorial</a><br />
+		Exopite Simple Options Framework:<br />
+		<a href='https://github.com/JoeSz/Exopite-Simple-Options-Framework'>https://github.com/JoeSz/Exopite-Simple-Options-Framework</a></p>
+		<p class='exopite-sof-description'>I hope you enjoy the plugin</p>
+		<p class='exopite-sof-description'>This project is licensed under the GNU GENERAL PUBLIC LICENSE</p>
+		";
 		/*
 		 * Main Settings Tab
 		 */
@@ -174,11 +191,11 @@ class Wpza_Maintenance_Development_Mode_Admin {
 					'title'	 => 'Background Color',
 					'rgba'	 => true,
 				),
-				array(
-					'id'	 => 'background_image',
-					'type'	 => 'image',
-					'title'	 => 'Background Image',
-				),
+//				array(
+//					'id'	 => 'background_image',
+//					'type'	 => 'image',
+//					'title'	 => 'Background Image',
+//				),
 			),
 		);
 
@@ -226,7 +243,7 @@ class Wpza_Maintenance_Development_Mode_Admin {
 		/*
 		 * Custom CSS and Javascript Tab
 		 */
-		$fields[]		 = array(
+		$fields[]	 = array(
 			'name'	 => 'css_js',
 			'title'	 => 'CSS/JS',
 			'icon'	 => 'dashicons-editor-code',
@@ -272,7 +289,7 @@ class Wpza_Maintenance_Development_Mode_Admin {
 		/*
 		 * Import Export Settings Tab
 		 */
-		$fields[]		 = array(
+		$fields[]	 = array(
 			'name'	 => 'backup',
 			'title'	 => 'Backup',
 			'icon'	 => 'dashicons-backup',
@@ -286,37 +303,22 @@ class Wpza_Maintenance_Development_Mode_Admin {
 		/*
 		 * Help Tab
 		 */
-		$fields[]		 = array(
-			'name'	 => 'help',
-			'title'	 => 'Help',
-			'icon'	 => 'dashicons-sos',
-			'fields' => array(
-				array(
-					'type'		 => 'content_third',
-					'content'	 => 'Third Section',
-				),
-			)
-		);
-		$aboutcontent	 = "<h2>Maintenance Mode Plugin<h2>
-		<p class='exopite-sof-description'>Maintenance and Development mode is used when you don’t want the public to view your site, but still have an attractive page giving the public details on when  your site will be available again.</p>
-		<p class='exopite-sof-description'>I noticed that many maintenance mode plugins were so complicated and wanted to release something that was quick and easy.</p>
-		<p class='exopite-sof-description'>It can be used when you are updating your site, developing new features or just want to park a domain.</p>
-		<p class='exopite-sof-description'>The maintenance plugin was developed by Donovan Maidens and is available free of charge on github.</p>
-		<p class='exopite-sof-description'><a href='https://github.com/djm56/wpza-maintenance-development-mode'>https://github.com/djm56/wpza-maintenance-development-mode</a></p>
-		<p class='exopite-sof-description'>If you have any questions, suggestions or just require some help, please use Github Issues.</p>
-		<p class='exopite-sof-description'>Special Thanks To:<br />
-		Joe Szalai for his great tool available on Github, I have used them extensively throughout the site.<br />
-		Wordpress Plugin Boilerplat:<br />
-		<a href='https://github.com/JoeSz/WordPress-Plugin-Boilerplate-Tutorial'>https://github.com/JoeSz/WordPress-Plugin-Boilerplate-Tutorial</a><br />
-		Exopite Simple Options Framework:<br />
-		<a href='https://github.com/JoeSz/Exopite-Simple-Options-Framework'>https://github.com/JoeSz/Exopite-Simple-Options-Framework</a></p>
-		<p class='exopite-sof-description'>I hope you enjoy the plugin</p>
-		<p class='exopite-sof-description'>This project is licensed under the GNU GENERAL PUBLIC LICENSE</p>
-		";
+//		$fields[]	 = array(
+//			'name'	 => 'help',
+//			'title'	 => 'Help',
+//			'icon'	 => 'dashicons-sos',
+//			'fields' => array(
+//				array(
+//					'type'		 => 'content_third',
+//					'content'	 => 'Third Section',
+//				),
+//			)
+//		);
+
 		/*
 		 * About Donovan Tab
 		 */
-		$fields[]		 = array(
+		$fields[] = array(
 			'name'	 => 'about',
 			'title'	 => 'About',
 			'icon'	 => 'dashicons-editor-help',

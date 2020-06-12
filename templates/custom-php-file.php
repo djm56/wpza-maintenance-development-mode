@@ -57,12 +57,12 @@ $wpdm = get_exopite_sof_option('wpza-maintenance-development-mode');
 					if (!empty($wpdm['editor_content']) && $wpdm['logo_position'] == 'left') {
 						?>
 						<div class="pure-g">
-							<div class="pure-u-2-5">
+							<div class="pure-u-md-2-5">
 								<div class="l-box">
 									<img class="pure-img" src="<?php echo $logoimage; ?>" />
 								</div>
 							</div>
-							<div class="pure-u-3-5">
+							<div class="pure-u-md-3-5">
 								<div class="l-box">
 									<?php echo (!empty($wpdm['editor_content']) ? $wpdm['editor_content'] : ''); ?>
 								</div>
@@ -73,15 +73,15 @@ $wpdm = get_exopite_sof_option('wpza-maintenance-development-mode');
 					else if (!empty($wpdm['editor_content']) && $wpdm['logo_position'] == 'top') {
 						?>
 						<div class="pure-g">
-							<div class="pure-u-8-24">
+							<div class="pure-u-md-8-24">
 
 							</div>
-							<div class="pure-u-8-24">
+							<div class="pure-u-md-8-24">
 								<div class="l-box">
 									<img class="pure-img" src="<?php echo $logoimage; ?>" />
 								</div>
 							</div>
-							<div class="pure-u-8-24">
+							<div class="pure-u-md-8-24">
 
 							</div>
 						</div>
@@ -97,12 +97,12 @@ $wpdm = get_exopite_sof_option('wpza-maintenance-development-mode');
 					else if (!empty($wpdm['editor_content']) && $wpdm['logo_position'] == 'right') {
 						?>
 						<div class="pure-g">
-							<div class="pure-u-3-5">
+							<div class="pure-u-md-3-5">
 								<div class="l-box">
 									<?php echo (!empty($wpdm['editor_content']) ? $wpdm['editor_content'] : ''); ?>
 								</div>
 							</div>
-							<div class="pure-u-2-5">
+							<div class="pure-u-md-2-5">
 								<div class="l-box">
 									<img class="pure-img" src="<?php echo $logoimage; ?>" />
 								</div>

@@ -155,6 +155,20 @@ class Wpza_Maintenance_Development_Mode_Admin {
 					'style'		 => 'fancy', // optional
 				),
 				array(
+					'id'		 => 'typography_1',
+					'type'		 => 'typography',
+					'title'		 => esc_html__('Main Body', 'plugin-name'),
+					// optional
+					'default'	 => array(
+						'family'	 => 'Arial',
+						'variant'	 => '400',
+						'size'		 => 16,
+						'height'	 => 24,
+						'color'		 => '#737373',
+					),
+					'preview'	 => true, // optional, to activate preview
+				),
+				array(
 					'id'	 => 'background_color',
 					'type'	 => 'color',
 					'title'	 => 'Background Color',
@@ -183,9 +197,10 @@ class Wpza_Maintenance_Development_Mode_Admin {
 					'content'	 => '<p>Add the page content you would like to use on the page.',
 				),
 				array(
-					'id'	 => 'editor_content',
-					'type'	 => 'editor',
-					'title'	 => 'Content', // optional
+					'id'			 => 'editor_content',
+					'type'			 => 'editor',
+					'title'			 => 'Content', // optional
+					'textarea_rows'	 => 30
 				),
 			)
 		);
@@ -246,7 +261,7 @@ class Wpza_Maintenance_Development_Mode_Admin {
 			'fields' => array(
 				array(
 					'type'	 => 'backup',
-					'title'	 => esc_html__('Backup', 'exopite-seo-core'),
+					'title'	 => esc_html__('Backup', 'plugin-name'),
 				),
 			)
 		);

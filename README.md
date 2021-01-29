@@ -3,7 +3,7 @@ WordPress Plugin used to create maintenance page while site is parked or in deve
 
 The plugin shows a landing page for maintenance, but when you log in the active template is shown.
 
-Version: 1.0.1.1
+Version: 1.0.1.2
 
 ## Installation
 
